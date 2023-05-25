@@ -9,8 +9,9 @@ function calculateInterest() {
     months += endDate.getMonth();
 
     var interest = 0;
-    for (var i = 0; i <= months; i++) {
-        interest += (principal * rate) / 100;
+    var monthlyRate = rate / 100; // Convert annual rate to monthly rate
+    for (var i = 0; i < months; i++) {
+        interest += (principal * monthlyRate);
     }
     var totalAmount = principal + interest;
 
