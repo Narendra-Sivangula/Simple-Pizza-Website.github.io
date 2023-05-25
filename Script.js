@@ -17,6 +17,7 @@ function calculateInterest() {
     var months = (endDate.getFullYear() - startDate.getFullYear()) * 12;
     months -= startDate.getMonth();
     months += endDate.getMonth();
+    var mon = months;
 
     var oneDay = 24 * 60 * 60 * 1000; // Number of milliseconds in a day
     var totalDays = Math.round(Math.abs((startDate - endDate) / oneDay));
@@ -28,8 +29,8 @@ function calculateInterest() {
     
     var Interest = 0;
     var monthlyRate = rate / 100;
-    for (var i = 0; i < months; i++) {
-        Interest += (monthlyRate*principal);
+    for (var i = 0; i < mon; i++) {
+        Interest += monthlyRate*principal;
     }
     
     //var InterestPerDay = Interest.toFixed(2)/totalDays
