@@ -21,16 +21,26 @@ function calculateInterest() {
     var totalDays = Math.round(Math.abs((startDate - endDate) / oneDay));
      
     var years = Math.floor(totalDays / 365); // Number of complete years
-    var days = totalDays % 365; // Remaining days
+    var remainingDays = totalDays % 365; // Remaining days
+    var months = Math.floor(remainingDays / 30); // Number of complete months
+    var days = remainingDays % 30; // Remaining days
 
     var interest = 0;
     var monthlyRate = rate / 100; // Convert annual rate to monthly rate
     for (var i = 0; i < months; i++) {
         interest += (principal * monthlyRate);
     }
+    
+    var yearsText = years === 1 ? 'year' : 'years';
+    var monthsText = months === 1 ? 'month' : 'months';
+    var daysText = days === 1 ? 'day' : 'days';
+    
     var InterestPerDay = interest.toFixed(2)/totalDays
     var MonthlyInterest = interest.toFixed(2)/12
     var totalAmount = principal + interest;
 
-    document.getElementById('result').innerHTML = 'Total Time : '+years+'-Years '+days+'-Days<br><br>Simple Interest ( Per Day ): '+InterestPerDay.toFixed(2)+'<br><br>Simple Interest ( Monthly) : ' + MonthlyInterest.toFixed(2)+ '<br><br>Simple Interest( Yearly ): ' + interest.toFixed(2) + '<br><br>Total Amount: ' + totalAmount.toFixed(2);
+    document.getElementById('result').innerHTML = 'Simple Interest: ' + interest.toFixed(2) + '<br>Total Amount: ' + totalAmount.toFixed(2);
+    document.getElementById('years').innerHTML = 'Total Years: ' + years + ' ' + yearsText;
+    document.getElementById('months').innerHTML = 'Total Months: ' + months + ' ' + monthsText;
+    document.getElementById('days').innerHTML = 'Total Days: ' + days + ' ' + daysText;
 }
