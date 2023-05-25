@@ -27,7 +27,7 @@ function calculateInterest() {
     var days = remainingDays % 30; // Remaining days
 
     var interest = 0;
-    var monthlyRate = rate / 100; // Convert annual rate to monthly rate
+    var monthlyRate = rate / 100 /12; // Convert annual rate to monthly rate
     for (var i = 0; i < months; i++) {
         interest += (principal * monthlyRate);
     }
