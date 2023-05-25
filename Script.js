@@ -32,8 +32,8 @@ function calculateInterest() {
         Interest += (monthlyRate*principal);
     }
     
-    var InterestPerDay = Interest.toFixed(2)/totalDays
-    var MonthlyInterest = Interest.toFixed(2)/12
+    //var InterestPerDay = Interest.toFixed(2)/totalDays
+    //var MonthlyInterest = Interest.toFixed(2)/12
     var totalAmount = principal + Interest;
     
     var yearsText = years === 1 ? 'year' : 'years';
