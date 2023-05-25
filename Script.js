@@ -27,10 +27,9 @@ function calculateInterest() {
     var days = remainingDays % 30; // Remaining days
     
     var Interest = 0;
-    var monthlyRate = (principal * rate) / (100 * 12);
+    var monthlyRate = rate / 100;
     for (var i = 0; i < months; i++) {
-        Interest += monthlyRate;
-        principal += monthlyRate;
+        Interest += (monthlyRate*principal);
     }
     
     var InterestPerDay = Interest.toFixed(2)/totalDays
