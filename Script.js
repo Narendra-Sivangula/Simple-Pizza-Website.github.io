@@ -33,8 +33,9 @@ function calculateInterest() {
         Interest += monthlyRate*principal;
     }
     
-    //var InterestPerDay = Interest.toFixed(2)/totalDays
-    //var MonthlyInterest = Interest.toFixed(2)/12
+    var InterestPerDay = Interest.toFixed(2)/totalDays
+    var MonthlyInterest = Interest.toFixed(2)/12
+    var YearlyInterest = MonthlyInterest*12;
     var totalAmount = principal + Interest;
     
     var yearsText = years === 1 ? 'year' : 'years';
@@ -43,7 +44,7 @@ function calculateInterest() {
     
     
 
-    document.getElementById('result').innerHTML = 'Simple Interest: ' + Interest.toFixed(2) + '<br>Total Amount: ' + totalAmount.toFixed(2);
+    document.getElementById('result').innerHTML = 'Total Interest: ' + Interest.toFixed(2)+'<br>Interest (Per Day) : '+ InterestPerDay.toFixed(2) +'<br>Interest (Monthly): '+MonthlyInterest.toFixed(2) +'<br>Interest (Yearly)'+YearlyInterest.toFixed(2)+'<br>Total Amount: ' + totalAmount.toFixed(2);
     document.getElementById('years').innerHTML = 'Total Years: ' + years + ' ' + yearsText;
     document.getElementById('months').innerHTML = 'Total Months: ' + months + ' ' + monthsText;
     document.getElementById('days').innerHTML = 'Total Days: ' + days + ' ' + daysText;
