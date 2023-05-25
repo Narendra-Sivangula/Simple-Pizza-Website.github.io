@@ -8,7 +8,10 @@ function calculateInterest() {
     months -= startDate.getMonth() + 1;
     months += endDate.getMonth();
 
-    var interest = (principal * rate * months) / 100;
+    var interest = 0;
+    for (var i = 0; i < months; i++) {
+        interest += (principal * rate) / 100;
+    }
     var totalAmount = principal + interest;
 
     document.getElementById('result').innerHTML = 'Simple Interest: ' + interest.toFixed(2) + '<br>Total Amount: ' + totalAmount.toFixed(2);
