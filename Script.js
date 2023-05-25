@@ -5,11 +5,11 @@ function calculateInterest() {
     var endDate = new Date(document.getElementById('endDate').value);
 
     var months = (endDate.getFullYear() - startDate.getFullYear()) * 12;
-    months -= startDate.getMonth() + 1;
+    months -= startDate.getMonth();
     months += endDate.getMonth();
 
     var interest = 0;
-    for (var i = 0; i < months; i++) {
+    for (var i = 0; i <= months; i++) {
         interest += (principal * rate) / 100;
     }
     var totalAmount = principal + interest;
