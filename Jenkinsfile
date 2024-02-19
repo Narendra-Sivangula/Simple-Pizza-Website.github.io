@@ -1,6 +1,7 @@
 pipeline {
-    agent any
-    
+    agent {
+        label "windows"
+    }
     environment {
         // Define JDK version and download URL
         JDK_VERSION = "17.0.2"
@@ -84,4 +85,5 @@ pipeline {
             echo "Failed to install JDK ${JDK_VERSION} or Maven ${MAVEN_VERSION}."
         }
     }
+    
 }
