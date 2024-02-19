@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label "windows"
+        label "Linux"
     }
     environment {
         // Define JDK version and download URL
