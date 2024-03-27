@@ -3,7 +3,6 @@ function calculateInterest() {
     var rate = parseFloat(document.getElementById('rate').value);
     var startDate = new Date(document.getElementById('startDate').value);
     var endDate = new Date(document.getElementById('endDate').value);
-    
     if (principal  < 0) {
         alert("Principal amount cannot be negative");
         return;
