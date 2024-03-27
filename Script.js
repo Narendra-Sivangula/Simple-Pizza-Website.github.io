@@ -31,7 +31,7 @@ function calculateInterest() {
     for (var i = 0; i < mon; i++) {
         Interest += monthlyRate*principal;
     }
-    
+
     var InterestPerDay = Interest.toFixed(2)/totalDays
     var MonthlyInterest = Interest.toFixed(2)/12
     var YearlyInterest = MonthlyInterest*12;
