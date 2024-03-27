@@ -12,7 +12,7 @@ function calculateInterest() {
         return;
     }
 
-    
+
     var months = (endDate.getFullYear() - startDate.getFullYear()) * 12;
     months -= startDate.getMonth();
     months += endDate.getMonth();
