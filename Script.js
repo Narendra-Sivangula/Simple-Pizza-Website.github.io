@@ -38,7 +38,7 @@ function calculateInterest() {
     var yearsText = years === 1 ? 'year' : 'years';
     var monthsText = months === 1 ? 'month' : 'months';
     var daysText = days === 1 ? 'day' : 'days';
-    
+
     
 
     document.getElementById('result').innerHTML = 'Total Interest: ' + Interest.toFixed(2)+'<br>Interest (Per Day) : '+ InterestPerDay.toFixed(2) +'<br>Interest (Monthly): '+MonthlyInterest.toFixed(2) +'<br>Interest (Yearly)'+YearlyInterest.toFixed(2)+'<br>Total Amount: ' + totalAmount.toFixed(2);
