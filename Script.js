@@ -1,48 +1,40 @@
-function calculateInterest() {
-    var principal = parseFloat(document.getElementById('principal').value);
-    var rate = parseFloat(document.getElementById('rate').value);
-    var startDate = new Date(document.getElementById('startDate').value);
-    var endDate = new Date(document.getElementById('endDate').value);
-    if (principal  < 0) {
-        alert("Principal amount cannot be negative");
-        return;
-    }
-    if (rate < 0) {
-        alert("Rate of interest(%) cannot be negative");
-        return;
-    }
-    var months = (endDate.getFullYear() - startDate.getFullYear()) * 12;
-    months -= startDate.getMonth();
-    months += endDate.getMonth();
-    var mon = months;
+// Navbar
+  let menu = document.querySelector('#menu-icon');
+  let navbar = document.querySelector('.navbar');
 
-    var oneDay = 24 * 60 * 60 * 1000; // Number of milliseconds in a day
-    var totalDays = Math.round(Math.abs((startDate - endDate) / oneDay));
-     
-    var years = Math.floor(totalDays / 365); // Number of complete years
-    var remainingDays = totalDays % 365; // Remaining days
-    var months = Math.floor(remainingDays / 30); // Number of complete months
-    var days = remainingDays % 30; // Remaining days
-    
-    var Interest = 0;
-    var monthlyRate = rate / 100;
-    for (var i = 0; i < mon; i++) {
-        Interest += monthlyRate*principal;
-    }
+  menu.onclick = () => {
+      navbar.classList.toggle('active');
+  }
 
-    var InterestPerDay = Interest.toFixed(2)/totalDays
-    var MonthlyInterest = Interest.toFixed(2)/12
-    var YearlyInterest = MonthlyInterest*12;
-    var totalAmount = principal + Interest;
-    
-    var yearsText = years === 1 ? 'year' : 'years';
-    var monthsText = months === 1 ? 'month' : 'months';
-    var daysText = days === 1 ? 'day' : 'days';
+  window.onscroll = () => {
+      navbar.classList.remove('active');
+  }
+  // Dark Mode
+  let darkmode = document.querySelector('#darkmode');
 
-    
+  darkmode.onclick = () => {
+      if(darkmode.classList.contains('bx-moon')){
+          darkmode.classList.replace('bx-moon','bx-sun');
+          document.body.classList.add('active');
+      }else{
+          darkmode.classList.replace('bx-sun','bx-moon');
+          document.body.classList.remove('active');
+      }
+  }
 
-    document.getElementById('result').innerHTML = 'Total Interest: ' + Interest.toFixed(2)+'<br>Interest (Per Day) : '+ InterestPerDay.toFixed(2) +'<br>Interest (Monthly): '+MonthlyInterest.toFixed(2) +'<br>Interest (Yearly)'+YearlyInterest.toFixed(2)+'<br>Total Amount: ' + totalAmount.toFixed(2);
-    document.getElementById('years').innerHTML = 'Total Years: ' + years + ' ' + yearsText;
-    document.getElementById('months').innerHTML = 'Total Months: ' + months + ' ' + monthsText;
-    document.getElementById('days').innerHTML = 'Total Days: ' + days + ' ' + daysText;
-}
+  // Scroll Reveal
+  const sr = ScrollReveal ({
+      origin: 'top',
+      distance: '40px',
+      duration: 2000,
+      reset: true
+  });
+
+
+  sr.reveal(`.home-text, .home-img,
+              .about-img, .about-text,
+              .box, .s-box,
+              .btn, .connect-text,
+              .contact-box`, {
+      interval: 200
+  })
